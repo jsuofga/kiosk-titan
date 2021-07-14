@@ -2,25 +2,42 @@
   <v-app>
     <!-- <Navbar /> -->
     <v-main>
-      <router-view></router-view>
+      <router-view :adminAccess = "adminAccess"></router-view>
+       <Footer @emit-currentUser= "handleCurrentUser"/>
     </v-main>
-    
+ 
+      
   </v-app>
 </template>
 
 <script>
 
-import Navbar from '../src/components/Navbar.vue'
+import Footer from '../src/components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Footer
   },
    
   data: () => ({
-    //
+     adminAccess:false,
   }),
+  methods:{
+    handleCurrentUser(payload){
+      console.log(payload)
+      if(payload.currentUser == 'soupensu@gmail.com'){
+        console.log('admin logged in')
+        this.adminAccess = true
+        console.log(this.adminAccess)
+      }else{
+        console.log('Denied')
+        this.adminAccess = false
+        console.log(this.adminAccess)
+      }
+      
+    }
+  }
 };
 </script>
 

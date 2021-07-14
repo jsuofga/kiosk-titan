@@ -1,7 +1,7 @@
 <template>
   <div class = "home d-flex flex-column ">
 
-    <!-- TOP ROW -->
+<!-- TOP ROW -->
      <v-row id = "top-row"> 
         <v-col class = "top-row-col justify-start" cols = "4">
           <img src= "../assets/homeleganceLogoNoCircle.png" width = "225px">
@@ -14,40 +14,29 @@
         <v-col class = "top-row-col" cols = "4">
           <DateTime/>
         </v-col>
-
      </v-row>
    
-    <!-- ROW 2 -->
+<!-- ROW 2 -->
       <v-row>
         <v-col cols = "8">
-          <Updates />
+          <Updates :adminAccess = "adminAccess"/>
         </v-col>
         <v-col cols = "4">
            <StarOfWeek />
         </v-col>
-      
       </v-row>
 
 <!-- ROW 3 -->
       <v-row>
         <v-col cols = "8">
-            <Celebrate />
+            <Celebrate :adminAccess = "adminAccess" />
         </v-col>
         <v-col cols = "4">
             <Wifi />
         </v-col>
-      
       </v-row>
 
-  <!-- ROW 4 -->
-  
-    <v-row >
-         <v-col class = "d-flex justify-end" cols = "12">
-          <v-btn plain  > <v-icon class = "mr-3">mdi-account</v-icon>Admin</v-btn> 
-        </v-col>
 
-    </v-row>
-  
 
   </div>
 
@@ -61,13 +50,14 @@ import Updates from "../components/Updates.vue"
 import Wifi from "../components/Wifi.vue"
 import StarOfWeek from "../components/StarOfWeek.vue"
 import Celebrate from "../components/Celebrate.vue"
+import Footer from "../components/Footer.vue"
+
 
 export default {
   name: 'Home',
-  components:{DateTime,Updates,Wifi,StarOfWeek,Celebrate},
-  props: {
-    msg: String
-  }
+  components:{DateTime,Updates,Wifi,StarOfWeek,Celebrate,Footer },
+  props:['adminAccess'],
+  
 }
 </script>
 

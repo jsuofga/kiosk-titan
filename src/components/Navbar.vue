@@ -9,7 +9,7 @@
         <v-img
           class="shrink mr-2"
           contain
-          src="../assets/homeleganceLogo.png"
+          src="../assets/homeleganceLogoNoCircle.png"
           transition="scale-transition"
           width = "100"
        

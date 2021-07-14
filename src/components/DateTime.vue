@@ -6,9 +6,17 @@
 </template>
 
 <script>
+import {projectAuth} from '../firebase/config'
+import {projectFirestore} from '../firebase/config'
+import { timestamp } from '../firebase/config'
+
 export default {
     name: 'DateTime',
+    methods:{
+        test(){
 
+    }
+ }
 }
 </script>
 
