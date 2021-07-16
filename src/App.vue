@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- <Navbar /> -->
-    <v-main>
+    <v-main class = "container" >
       <router-view :adminAccess = "adminAccess"></router-view>
        <Footer @emit-currentUser= "handleCurrentUser"/>
     </v-main>
@@ -43,7 +43,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style >
-
+html{
+  overflow-y: hidden;  /*removes the vertical scroll bars from app */
+}
+.container{
+  background-color: #D38753
+}
 
 </style>
 

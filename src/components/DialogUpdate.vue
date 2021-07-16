@@ -26,22 +26,21 @@
                 <v-text-field
                   label="Announcement 1"
                   type="text"
-                  v-model = "announcement1"
+                  v-model = "announcements.event1"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Announcement 2"
                   type="text"
-                  v-model = "announcement2"
+                  v-model = "announcements.event2"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                    label="Announcement 3"
                    type="text"
-                   v-model = "announcement3"
-                
+                   v-model = "announcements.event3"
                 ></v-text-field>
               </v-col>
    
@@ -73,45 +72,57 @@
 
 <script>
 
+import {projectFirestore} from '../firebase/config'
 
   export default {
     name: 'DialogUpdate',
     components: {
     },
+
     data: () => ({
       dialog:false,
-      announcement1:'',
-      announcement2:'',
-      announcement3:''
-
+      announcements: {event1:'',event2:'',event3:'',}
     }),
+
     methods: {
 
       submit(_input){         
         if(_input == 'close'){
-          // alert('close')
-          this.dialog = false
-          console.log (this.announcement1,this.announcement2,this.announcement3)
+          this.dialog = false //close dialog box
         }else if(_input =="save"){
-          // alert('save')
-          this.dialog = false
-          console.log (this.announcement1)
-        }
+          console.log(this.announcements)
+          // Write annoucments into Firebase store collection 'announcements' documnet 'most-recent-post'
+                    projectFirestore.collection("announcements").doc('most-recent-post').set(this.announcements)
+                    .then(() => {
+                        console.log("Document successfully written!");
+                        // Done
+                        //  this.isPending = false
+                        //clear inputs
+              
+                    
+                        // Redirect to the playlist details page
+                        //  this.$router.push({path:`/playlistdetails/${info.uid}`})
+                        //this.$router.push({path:`/`})
+                      
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+
+          //this.dialog = false //close diablog box
+      }
+        
 
       },
 
-
-
     },  
+    //Life Cycle Hooks
     created(){
 
     },
-
-    mounted(){
-  
-      
     
-    }
+
+
   }
 
 </script>

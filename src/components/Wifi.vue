@@ -1,27 +1,17 @@
 <template>
     <div class ="wifi">
-        <v-card
-              class="mx-auto "
-              color = "white"
-              light
-              height = 400
-            >
+
               <v-card-text>
-             
-                <h1  class = "text-h4 d-flex justify-center">   <v-icon class = "left mr-5" large>mdi-wifi</v-icon>Join Our Public Wifi</h1> <br>
+                <h1  class = "text-h4 d-flex justify-center"> Homelegance Public Wifi</h1> <br>
         
                 <div class = "d-flex justify-center" > 
-
-                    <img src= "../assets/qr-wifi.png" width = "200px"> 
-            
+                    <img src= "../assets/qr-code-wifi-homelegance-public.png" width = "250px"> 
                 </div> <br>
                         <p class="text-h5 text--white d-flex justify-center">
                   SCAN ME 
                 </p>
-              
-              
               </v-card-text>
-            </v-card>
+         
     </div>
 </template>
 
@@ -35,7 +25,11 @@ export default {
 <style scoped>
 
  .wifi{
-
+    background-color: white ;
+    height:400px;
+    border-radius: 8px;
+    box-shadow:  6px 10px 5px rgb(99, 97, 96);
+   
   
  }
 
