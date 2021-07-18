@@ -12,35 +12,35 @@
           v-bind="attrs"
           v-on="on"
         >
-          Edit Annoucements
+          Edit Bulletin Posts
         </v-btn>
       </template>
       <v-card>
         <v-card-title class = "justify-center">
-          <span class="text-h5 ">Announcements</span>
+          <span class="text-h5 ">Update Bulletin Post IT</span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
               <v-col cols="12">
                 <v-text-field
-                  label="Announcement 1"
+                  label="Post It 1"
                   type="text"
-                  v-model = "announcements.event1"
+                  v-model = "posts.event1"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  label="Announcement 2"
+                  label="Post It 2"
                   type="text"
-                  v-model = "announcements.event2"
+                  v-model = "posts.event2"
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                   label="Announcement 3"
+                   label="Post It 3"
                    type="text"
-                   v-model = "announcements.event3"
+                   v-model = "posts.event3"
                 ></v-text-field>
               </v-col>
    
@@ -81,7 +81,7 @@ import {projectFirestore} from '../firebase/config'
 
     data: () => ({
       dialog:false,
-      announcements: {event1:'',event2:'',event3:'',}
+      posts: {event1:'',event2:'',event3:'',}
     }),
 
     methods: {
@@ -90,9 +90,9 @@ import {projectFirestore} from '../firebase/config'
         if(_input == 'close'){
           this.dialog = false //close dialog box
         }else if(_input =="save"){
-          console.log(this.announcements)
-          // Write annoucments into Firebase store collection 'announcements' documnet 'most-recent-post'
-                    projectFirestore.collection("announcements").doc('most-recent-post').set(this.announcements)
+          console.log(this.posts)
+          // Write annoucments into Firebase store collection 'bulletin' document 'most-recent-post'
+                    projectFirestore.collection("bulletin").doc('most-recent-post').set(this.posts)
                     .then(() => {
                         console.log("Document successfully written!");
                         // Done

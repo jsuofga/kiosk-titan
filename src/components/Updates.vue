@@ -9,9 +9,9 @@
                 </div> 
             </h1>
         
-            <div class = "post-it">{{announcements.event1}}</div>
-            <div class = "post-it purple-post">{{announcements.event2}}</div>
-            <div class = "post-it green-post">{{announcements.event3}}</div>
+            <div class = "post-it">{{posts.event1}}</div>
+            <div class = "post-it purple-post">{{posts.event2}}</div>
+            <div class = "post-it green-post">{{posts.event3}}</div>
             
             <!-- <div class = "post-it">sdfwer ewrtqetr ewrwer wewrr</div>
             <div class = "post-it purple-post">Meican Food Lunch tomorrow!</div>
@@ -40,18 +40,17 @@ export default {
      components:{DialogUpdate,},
 
      data: () => ({
-        announcements : {event1:'',event2:'',event3:'',}
+        posts : {event1:'',event2:'',event3:'',}
     }),
 
-    //Life Cycle Hooks
-    
+    //Life Cycle Hooks 
     mounted(){
       // Get realtime update (using onSnapshot method) of all the documents in the collection 'playlist'
-      this.unsubscribe =  projectFirestore.collection("announcements").doc('most-recent-post')
+      this.unsubscribe =  projectFirestore.collection("bulletin").doc('most-recent-post')
         .onSnapshot((doc) => {
-              console.log('current data:', doc.data())  
-              this.announcements = doc.data()
-             console.log('Announcements', this.announcements)
+            //   console.log('current data:', doc.data())  
+              this.posts = doc.data()
+            //  console.log('Posts', this.posts)
         })
     },
     unmounted(){

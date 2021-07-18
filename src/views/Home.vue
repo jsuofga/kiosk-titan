@@ -1,22 +1,9 @@
 <template>
   <div class = "home d-flex flex-column ">
 
-<!-- TOP ROW -->
-     <v-row id = "top-row" class = "py-0"> 
-        <v-col class = "top-row-col justify-start" cols = "4">
-          <img src= "../assets/homeleganceLogoNoCircle.png" width = "225px">
-        </v-col>
+<!-- Navbar -->
 
-        <v-col class = "top-row-col" cols = "4">
-        REV 008
-        </v-col>
-
-        <v-col class = "top-row-col" cols = "4">
-          <DateTime/>
-        </v-col>
-     </v-row>
-   
-<!-- ROW 2 -->
+<!-- ROW 1 -->
       <v-row class = "my-0">
         <v-col cols = "8">
           <Updates :adminAccess = "adminAccess"/>
@@ -26,17 +13,15 @@
         </v-col>
       </v-row>
 
-<!-- ROW 3 -->
+<!-- ROW 2 -->
       <v-row class = "my-0">
         <v-col cols = "8">
-            <Celebrate :adminAccess = "adminAccess" />
+            <Announcement :adminAccess = "adminAccess" />
         </v-col>
         <v-col cols = "4">
             <Wifi />
         </v-col>
       </v-row>
-
-
 
   </div>
 
@@ -49,13 +34,14 @@ import DateTime from "../components/DateTime.vue"
 import Updates from "../components/Updates.vue"
 import Wifi from "../components/Wifi.vue"
 import StarOfWeek from "../components/StarOfWeek.vue"
-import Celebrate from "../components/Celebrate.vue"
-import Footer from "../components/Footer.vue"
+import Announcement from "../components/Announcement.vue"
+import Navbar from "../components/Navbar.vue"
+
 
 
 export default {
   name: 'Home',
-  components:{DateTime,Updates,Wifi,StarOfWeek,Celebrate,Footer },
+  components:{DateTime,Updates,Wifi,StarOfWeek,Announcement,Navbar },
   props:['adminAccess'],
   
 }
@@ -64,23 +50,25 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
  .home{
-   /* padding: 10px ;  */
+ 
    padding-left: 50px ; 
    padding-right: 50px  
  }
- #top-row{
-   /* border:1px solid red; */
+.top-row{
+  display:flex;
+  justify-content: center;
  
- }
+}
  .top-row-col{
    display:flex;
-   align-items: center;
    justify-content: center;
-   /* border: 1px solid green */
+   align-items: center;
+   padding-top:20px;
+   padding-bottom:20px;
  }
  #date-time{
   display:flex;
-  flex-direction: column;
+  flex-direction: column; 
  }
 
 

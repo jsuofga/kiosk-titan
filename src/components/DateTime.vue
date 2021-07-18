@@ -1,8 +1,7 @@
 <template>
     <div class ="date-time">
-        <h1 class = "display-3 font-weight-bold white--text">{{monthNames[d.getMonth()]}} {{d.getDate()}}</h1>
-        <h1 class = "display-3 font-weight-bold white--text">{{d.getHours()}}<span class = "blink ml-2 mr-2">:</span>{{minutes}}</h1> 
-    
+        <div class ="date"><h1 class = "display-3 font-weight-bold white--text">{{monthNames[d.getMonth()]}} {{d.getDate()}}</h1></div> 
+        <div class = "time"><h1 class = "display-3 font-weight-bold white--text">{{d.getHours()}}<span class = "blink ml-2 mr-2">:</span>{{minutes}}</h1></div> 
     </div>
 </template>
 
@@ -39,21 +38,24 @@ export default {
 </script>
 
 <style scoped>
-
  .date-time{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
+     display:flex;
+ 
+ }
+ .date,.time{
+     margin-left: 20px;
+     margin-right: 20px;
+
  }
  span{
       animation: blink 1s linear infinite;
  }
-    @keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+@keyframes blink {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
 }
 </style>

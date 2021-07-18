@@ -1,24 +1,21 @@
 <template>
   <v-app>
-    <!-- <Navbar /> -->
-    <v-main class = "container" >
-      <router-view :adminAccess = "adminAccess"></router-view>
-       <Footer @emit-currentUser= "handleCurrentUser"/>
+    <v-main class = "main">
+        <Navbar @emit-currentUser= "handleCurrentUser"/>
+        <router-view :adminAccess = "adminAccess"></router-view>
+       <!-- <Footer @emit-currentUser= "handleCurrentUser"/> -->
     </v-main>
- 
-      
   </v-app>
+
 </template>
 
 <script>
 
-import Footer from '../src/components/Footer.vue'
+import Navbar from "./components/Navbar.vue"
 
 export default {
   name: 'App',
-  components: {
-    Footer
-  },
+  components:{Navbar},
    
   data: () => ({
      adminAccess:false,
@@ -39,15 +36,15 @@ export default {
     }
   }
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style >
-html{
-  overflow-y: hidden;  /*removes the vertical scroll bars from app */
-}
-.container{
-  background-color: #D38753
+<style>
+
+
+.main{
+  background-color: #D38753;
 }
 
 </style>
