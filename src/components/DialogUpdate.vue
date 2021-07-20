@@ -81,7 +81,8 @@ import {projectFirestore} from '../firebase/config'
 
     data: () => ({
       dialog:false,
-      posts: {event1:'',event2:'',event3:'',}
+      posts: {event1:'',event2:'',event3:'',},
+      snackbar :true
     }),
 
     methods: {
@@ -98,18 +99,12 @@ import {projectFirestore} from '../firebase/config'
                         // Done
                         //  this.isPending = false
                         //clear inputs
-              
-                    
-                        // Redirect to the playlist details page
-                        //  this.$router.push({path:`/playlistdetails/${info.uid}`})
-                        //this.$router.push({path:`/`})
-                      
                     })
                     .catch((error) => {
                         console.error("Error writing document: ", error);
+                        alert('Failed.')
                     });
 
-          //this.dialog = false //close diablog box
       }
         
 

@@ -9,12 +9,13 @@
                     <!-- <p class="text-h5 text--white d-flex justify-center">Public Wifi </p> -->
                 </div> 
                 <br>
-               
                 <br>
-
                  <h1  class = "text-h4"> <img src= "../assets/homeleganceLogoNoCircle.png" width = "233px" >  </h1> 
-            
+                
+                 <div><p>Ver:Beta-2</p></div>
+                 
               </v-card-text>
+               
          
     </div>
 </template>
@@ -35,5 +36,6 @@ export default {
     box-shadow:  6px 10px 5px rgb(99, 97, 96);
   
  }
+
 
 </style>

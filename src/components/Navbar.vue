@@ -2,6 +2,7 @@
   <div class = "navbar">
       <v-row class = "top-row"> 
         <v-col class = "top-row-col justify-start hidden-md-and-down" xs= "12"  md = "4">
+        
         </v-col>
 
         <v-col class = "top-row-col hidden-md-and-down" xs= "12" md = "4">
