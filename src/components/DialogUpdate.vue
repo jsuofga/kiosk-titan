@@ -12,7 +12,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          Edit Bulletin Posts
+          Edit Post ITs
         </v-btn>
       </template>
       <v-card>

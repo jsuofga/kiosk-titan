@@ -5,23 +5,46 @@
 
 <!-- ROW 1 -->
       <v-row class = "my-0">
-        <v-col cols = "8">
+        <v-col xs= "12"  md = "8">
           <Updates :adminAccess = "adminAccess"/>
         </v-col>
-        <v-col cols = "4">
+        <v-col xs= "12"  md = "4" class = "hidden-md-and-down">
            <StarOfWeek />
         </v-col>
       </v-row>
 
 <!-- ROW 2 -->
       <v-row class = "my-0">
+        <v-col xs= "12"  md = "8" >
+            <Announcement :adminAccess = "adminAccess" />
+        </v-col>
+        <v-col xs= "12"  md = "4" class = "hidden-md-and-down">
+            <Wifi />
+        </v-col>
+      </v-row>
+
+
+<!-- Original -->
+
+<!-- ROW 1 -->
+      <!-- <v-row class = "my-0">
+        <v-col cols = "8">
+          <Updates :adminAccess = "adminAccess"/>
+        </v-col>
+        <v-col cols = "4">
+           <StarOfWeek />
+        </v-col>
+      </v-row> -->
+
+<!-- ROW 2 -->
+      <!-- <v-row class = "my-0">
         <v-col cols = "8">
             <Announcement :adminAccess = "adminAccess" />
         </v-col>
         <v-col cols = "4">
             <Wifi />
         </v-col>
-      </v-row>
+      </v-row> -->
 
   </div>
 

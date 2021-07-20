@@ -1,12 +1,17 @@
 <template>
 
     <div class ="announcement">
-
+         <v-btn id = "button-submit" v-if = 'adminAccess' @click= "submit" class = "primary mt-10">Submit</v-btn>
+         
          <div v-if= "!showEditAnnouncement" id = "announcement">
+
+           
             <div class = "d-flex flex-column" > 
-                    <h2 class= "display-3  white--text ">{{input}}</h2>  <br>
+                    <h2 class = " chalkWriting " v-bind:class = "{chalkWritingMobile :isMobile}" >{{input}}</h2>  <br>
             </div> <br>
          </div>
+
+         
 
         <!-- Emoji Test Area -->
             <v-btn v-if = 'adminAccess' id = "button-edit"
@@ -15,11 +20,14 @@
                 dark
                 v-bind="attrs"
                 >
-                Edit Annoucements
+                Edit Announcements
             </v-btn>
-            <div v-if = 'showEditAnnouncement' id ="markUpArea">
 
-                    <textarea v-model="input" placeholder = 'Enter announcements here....'></textarea>
+    
+
+            <div v-if = 'showEditAnnouncement' id ="markUpArea">
+                             
+                        <textarea v-model="input" placeholder = 'Enter announcements here....'></textarea>
                  
                 <div id = "emojiArea">
                     <emoji-picker @emoji="insert" :search="search">
@@ -58,8 +66,7 @@
                             </div>
                     </emoji-picker>              
                 </div>
-             <v-btn @click= "submit" class = "primary mt-10">Submit Announcement</v-btn>
-        </div>
+            </div>
     </div>
 </template>
 
@@ -76,10 +83,10 @@ export default {
             showEditAnnouncement:false,
             input: '',
             search: '',
+            isMobile:false,
         }
     },
     methods:{
-
         editAnnouncement(){
             this.showEditAnnouncement = true
         },
@@ -115,6 +122,14 @@ export default {
                 this.input = doc.data().announcement
                 // console.log('Announcements', this.input)
             })
+
+             // Get access to viewport size
+            if(this.$vuetify.breakpoint.width < 600){
+                this.isMobile = true
+            }else{
+                this.isMobile = false
+            }
+                console.log('isMobile',this.isMobile)
         },
         unmounted(){
         //   console.log('un-mounted - PlaylistDetails')
@@ -125,24 +140,39 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
  .announcement{
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color:#03A9F4;
-    height: 400px;
+    background-color: #25292A;
+    height: 450px;
     border-radius: 8px;
     box-shadow:  -6px 10px 5px rgb(99, 97, 96); 
     position: relative;
+    color:#FBF7F5; 
     
+ }
+ .chalkWriting{
+    /* font-family: 'Permanent Marker', cursive; */
+    font-size: 4rem;
+ }
+  .chalkWritingMobile{
+   
+    font-size: 1rem;
  }
  #button-edit{
      position:absolute;
      top:-20px;
-     right:10px
+     left:0px;
  }
 
+ #button-submit{
+     position:absolute;
+     top:10px;
+     left:20px
+}
  #markUpArea{
     display:flex;
     flex-direction: column;
@@ -156,6 +186,8 @@ textarea{
     background-color: white;
     width:100%;
     margin-top:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
 }
 #emojiArea{
     display:flex;
@@ -179,6 +211,7 @@ textarea{
      border-radius: 6px;
      width:  100%;
  }
+
 
 
 

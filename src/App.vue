@@ -3,7 +3,7 @@
     <v-main class = "main">
         <Navbar @emit-currentUser= "handleCurrentUser"/>
         <router-view :adminAccess = "adminAccess"></router-view>
-       <!-- <Footer @emit-currentUser= "handleCurrentUser"/> -->
+   
     </v-main>
   </v-app>
 
@@ -19,11 +19,12 @@ export default {
    
   data: () => ({
      adminAccess:false,
+     isMobile:false,
   }),
   methods:{
     handleCurrentUser(payload){
       console.log(payload)
-      if(payload.currentUser == 'soupensu@gmail.com'){
+      if(payload.currentUser !== ''){
         console.log('admin logged in')
         this.adminAccess = true
         console.log(this.adminAccess)
@@ -34,6 +35,11 @@ export default {
       }
       
     }
+  },
+  //Life Cycle Hooks
+  mounted(){
+
+
   }
 };
 
@@ -45,6 +51,9 @@ export default {
 
 .main{
   background-color: #D38753;
+
+
+ 
 }
 
 </style>

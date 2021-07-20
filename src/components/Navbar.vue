@@ -1,27 +1,20 @@
 <template>
   <div class = "navbar">
-        <v-row class = "top-row"> 
-        <v-col class = "top-row-col justify-start" cols = "4">
-          
-          <!-- <img src= "../assets/homeleganceLogoNoCircle.png" width = "150px"> -->
+      <v-row class = "top-row"> 
+        <v-col class = "top-row-col justify-start hidden-md-and-down" xs= "12"  md = "4">
         </v-col>
 
-        <v-col class = "top-row-col" cols = "4">
+        <v-col class = "top-row-col hidden-md-and-down" xs= "12" md = "4">
         <DateTime/>
         </v-col>
 
-        <v-col class = "top-row-col" cols = "2">
-          
-        </v-col>
-
-        <v-col class = "top-row-col " cols = "2">
+        <v-col class = "top-row-col justify-end " xs= "12" md= "4">
           <!-- Log In and Log Out -->
-          <div class="loginout d-flex align-center">
+          <div >
             <div class = "white--text">{{userEmail}}</div>
-            <v-btn plain v-if = "!loggedIn" @click= "gotoLogin"  class = " white--text"> <v-icon class = "mr-3">mdi-account-check</v-icon>Log In</v-btn> 
+            <v-btn plain v-if = "!loggedIn" @click= "gotoLogin"  class = " white--text"> <v-icon class = "mr-3">mdi-account-check</v-icon>Edit Board</v-btn> 
             <v-btn plain v-else  @click= "logOut" class = "white--text " > <v-icon class = "mr-3 ">mdi-account-off</v-icon>Log Out</v-btn> 
            </div>
-    
         </v-col>
      </v-row>
 
@@ -95,6 +88,10 @@ export default {
 </script>
 
 <style scoped>
+.navbar{
+  margin-top:25px;
+  margin-bottom:25px;
+}
 
 .top-row{
   display:flex;
