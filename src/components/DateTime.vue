@@ -1,5 +1,6 @@
 <template>
     <div class ="date-time">
+        
         <div class ="date"><h1 class = "display-3 font-weight-bold white--text">{{monthNames[month]}} {{date}}</h1></div> 
         <div class = "time"><h1 class = "display-3 font-weight-bold white--text">{{hour}}<span class = "blink ml-2 mr-2">:</span>{{minute}}</h1></div> 
     </div>
@@ -28,12 +29,16 @@ export default {
             this.date = d.getDate()
            // Hours
             this.hour = d.getHours()
-
+          
             // Minutes
             if (d.getMinutes() < 10) {
-                this.minute =  '0' + d.getMinutes()
+                this.minute =  '0' + d.getMinutes().toString()
+                
+            }else{
+                this.minute = d.getMinutes().toString()
             }
-                this.minute = d.getMinutes()
+      
+
        }
     },
     computed:{

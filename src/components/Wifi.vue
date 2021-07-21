@@ -12,7 +12,7 @@
                 <br>
                  <h1  class = "text-h4"> <img src= "../assets/homeleganceLogoNoCircle.png" width = "233px" >  </h1> 
                 
-                 <div><p>Ver:Beta-2</p></div>
+                 <div><p>Ver:Beta-3</p></div>
                  
               </v-card-text>
                
