@@ -1,5 +1,8 @@
 # kiosk-titan
 
+## Description
+Simple digital bulleting board for our office. Allows authenticated admin to update daily posts and annoucements.
+
 ## Project setup
 ```
 npm install
