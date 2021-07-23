@@ -1,7 +1,7 @@
 # kiosk-titan
 
 ## Description
-Simple digital bulleting board for our office. Allows authenticated admin to update daily posts and annoucements.
+Simple digital bulleting board for our office. Allows authenticated admin to update daily posts and announcements.
 
 ## Project setup
 ```
